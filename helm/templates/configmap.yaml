@@ -4,3 +4,6 @@ metadata:
   name: {{ .Chart.Name }}-configmap
 data:
   host: {{ .Values.host }}
+  username: {{ .Values.username }}
+  password: {{ .Values.password }}
+  auth: {{ .Values.auth }}

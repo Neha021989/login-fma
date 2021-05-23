@@ -38,11 +38,27 @@ spec:
               containerPort: 8080
               protocol: TCP
           env:
-            - name: SPRING_DATA_MONGODB_HOST
+            - name: {{ .Values.env.host }}
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Chart.Name }}-configmap
                   key: host
+            - name: {{ .Values.env.username }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Chart.Name }}-configmap
+                  key: username
+            - name: {{ .Values.env.password }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Chart.Name }}-configmap
+                  key: password
+            - name: {{ .Values.env.auth }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Chart.Name }}-configmap
+                  key: auth      
+            
           livenessProbe:
             httpGet:
               path: /
