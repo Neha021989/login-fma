@@ -2,6 +2,16 @@ load('ext://helm_remote', 'helm_remote')
 helm_remote('mongodb',
             repo_name='stable',
             repo_url='https://charts.helm.sh/stable')
+            
+local_resource(
+  'login-fma-jib-build',
+  'mvn jib:build',
+  deps=['src', 'pom.xml'])
+  
+local_resource(
+  'enquiries-fma-jib-build',
+  'mvn -f ../enquiries-fma/pom.xml compile jib:build -D image=nechoudhary/enquiries-fma',
+  deps=['../enquiries-fma/pom.xml', '../enquiries-fma/target/classes'])
 
 login_yaml = helm(
   './helm',
