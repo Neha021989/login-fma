@@ -12,7 +12,7 @@ login_yaml = helm(
   # The values file to substitute into the chart.
   values=['./helm/values.yaml'],
   # Values to set from the command-line
-  set=['service.port=8080', 'ingress.enabled=true']
+  set=['ingress.enabled=true']
   )
 k8s_yaml(login_yaml)
 
@@ -25,6 +25,9 @@ enquiries_yaml = helm(
   # The values file to substitute into the chart.
   values=['../enquiries-fma/helm/values.yaml'],
   # Values to set from the command-line
-  set=['service.port=8082', 'ingress.enabled=true']
+  set=['ingress.enabled=true']
   )
 k8s_yaml(enquiries_yaml)
+
+k8s_resource(workload='login-fma', port_forwards=8083)
+k8s_resource(workload='enquiries-fma', port_forwards=8089)
