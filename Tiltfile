@@ -13,7 +13,6 @@ helm_remote('mongodb',
 custom_build(
   'nechoudhary/login-fma',
   'mvn -f pom.xml clean compile jib:build -D image=$EXPECTED_REF',
-  skips_local_docker=True,
   deps=['./target/classes'],
   tag='latest',
   live_update = [
