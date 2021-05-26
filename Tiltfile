@@ -12,7 +12,7 @@ helm_remote('mongodb',
 ## Causing issues via building the image
 custom_build(
   'nechoudhary/login-fma',
-  'mvn -f pom.xml compile jib:build -D image=$EXPECTED_REF',
+  'mvn -f pom.xml clean compile jib:build -D image=$EXPECTED_REF',
   skips_local_docker=True,
   deps=['./target/classes'],
   tag='latest',

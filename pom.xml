@@ -15,6 +15,7 @@
 	<description>Login for FMA application</description>
 	<properties>
 		<java.version>11</java.version>
+		<image>registry.hub.docker.com/nechoudhary/login-fma:latest</image>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,7 +55,7 @@
 		      <image>openjdk:11.0.5-jre</image>
 		    </from>
 		    <to>
-		      <image>registry.hub.docker.com/nechoudhary/login-fma:latest</image>
+		     <image>${image}</image>
 		    </to>
 		  </configuration>
 		</plugin>
