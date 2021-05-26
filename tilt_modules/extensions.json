@@ -9,6 +9,11 @@
       "Name": "global_vars",
       "ExtensionRegistry": "https://github.com/tilt-dev/tilt-extensions",
       "TimeFetched": "2021-05-25T18:02:14.1184019+05:30"
+    },
+    {
+      "Name": "restart_process",
+      "ExtensionRegistry": "https://github.com/tilt-dev/tilt-extensions",
+      "TimeFetched": "2021-05-26T12:36:55.795641+05:30"
     }
   ]
 }
