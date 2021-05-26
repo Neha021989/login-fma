@@ -3,12 +3,12 @@
     {
       "Name": "helm_remote",
       "ExtensionRegistry": "https://github.com/tilt-dev/tilt-extensions",
-      "TimeFetched": "2021-05-24T12:52:18.8318042+05:30"
+      "TimeFetched": "2021-05-25T18:02:06.9667851+05:30"
     },
     {
       "Name": "global_vars",
       "ExtensionRegistry": "https://github.com/tilt-dev/tilt-extensions",
-      "TimeFetched": "2021-05-24T12:52:23.9628316+05:30"
+      "TimeFetched": "2021-05-25T18:02:14.1184019+05:30"
     }
   ]
 }

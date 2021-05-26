@@ -3,10 +3,16 @@ helm_remote('mongodb',
             repo_name='stable',
             repo_url='https://charts.helm.sh/stable')
             
-local_resource(
-  'login-fma-jib-build',
-  'mvn jib:build',
-  deps=['src', 'pom.xml'])
+custom_build(
+ 'nechoudhary/login-fma',
+  'mvn compile jib:build -D image=nechoudhary/login-fma',
+  skips_local_docker=True,
+  deps=['./pom.xml', './target/classes'],
+  tag='latest',
+  live_update = [
+  sync('./target/classes', '/workspace/BOOT-INF/classes')
+  ])
+
   
 local_resource(
   'enquiries-fma-jib-build',
@@ -41,3 +47,5 @@ k8s_yaml(enquiries_yaml)
 
 k8s_resource(workload='login-fma', port_forwards=8083)
 k8s_resource(workload='enquiries-fma', port_forwards=8089)
+
+allow_k8s_contexts('minikube1')
