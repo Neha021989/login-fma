@@ -1,4 +1,5 @@
 load('ext://helm_remote', 'helm_remote')
+load('ext://global_vars', 'get_global', 'set_global')
 helm_remote('mongodb',
             repo_name='stable',
             repo_url='https://charts.helm.sh/stable')
@@ -12,13 +13,13 @@ helm_remote('mongodb',
 ## Causing issues via building the image
 custom_build(
   'nechoudhary/login-fma',
-  'mvn -f pom.xml clean compile jib:build -D image=$EXPECTED_REF',
+  'mvn -f ./pom.xml clean compile jib:build -D --image=$EXPECTED_REF',
   deps=['./target/classes'],
   tag='latest',
   live_update = [
   sync('./target/classes', '/workspace/BOOT-INF/classes')
   ])
-  
+
 
 login_yaml = helm(
   './helm',

@@ -31,7 +31,7 @@ public class LoginResource {
 
 	@GetMapping("/login")
 	public Mono<String> getHello() {
-		return Mono.just("hello world hey!!!!555");
+		return Mono.just("hello world hey!!!!");
 	}
 
 	@GetMapping("/login/{username}")
